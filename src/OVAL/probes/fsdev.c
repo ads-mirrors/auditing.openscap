@@ -132,6 +132,7 @@ static int is_local_fs(struct mntent *ment)
 		"ocfs2",
 		"lustre",
 		"davfs",
+		"panfs",
 		NULL
 	};
 	for (int i = 0; pseudo_fs[i]; i++) {
