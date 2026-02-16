@@ -42,16 +42,15 @@ function _oscap {
     opts[oscap:info]="--fetch-remote-resources --local-files --profile --profiles --references"
 
     # local variables
-	local std cmd i prev
-	local c=1
-	local cur="`_get_cword`"
-	local prog="${COMP_WORDS[0]}"
+    local cur prev words cword split
+    _init_completion -s || return
+    local cmd i
+    local c=1
     local modpath='oscap'
-	_comp__split_longopt || prev="${COMP_WORDS[$COMP_CWORD-1]}"
 
     # get module path
-	while [ $c -lt $COMP_CWORD ]; do
-		i="${COMP_WORDS[c]}"
+	while [ $c -lt $cword ]; do
+		i="${words[c]}"
 		case "$i" in
 			# TODO handle generic switches
 			-*) _oscap_noarg "$i"; c=$((c + $?)) ;;
@@ -70,7 +69,12 @@ function _oscap {
             --report) _filedir 'html' ;;
 		esac
 
-	elif [ "x${cur:0:1}" == "x-" ]; then
+		return
+	fi
+
+	$split && return
+
+	if [ "x${cur:0:1}" == "x-" ]; then
 		# an option
 		COMPREPLY=( $(compgen -W "${opts[$modpath]}" -- ${cur}) )
     elif [ "x${cmds[$modpath]}" != 'x' ]; then
