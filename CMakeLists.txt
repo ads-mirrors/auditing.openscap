@@ -8,7 +8,7 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 		"MinSizeRel" "RelWithDebInfo")
 endif()
 
-project("openscap")
+project("openscap" C)
 set(OPENSCAP_VERSION_MAJOR "1")
 set(OPENSCAP_VERSION_MINOR "4")
 set(OPENSCAP_VERSION_PATCH "4")
