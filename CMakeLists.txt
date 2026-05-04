@@ -564,6 +564,11 @@ endif()
 if(APPLE)
 	#full Single Unix Standard v3 (SUSv3) conformance (the Unix API)
 	add_definitions(-D_DARWIN_C_SOURCE)
+
+	# So that installed binaries can find libopenscap.dylib without DYLD_LIBRARY_PATH.
+	set(CMAKE_MACOSX_RPATH ON)
+	set(CMAKE_INSTALL_NAME_DIR "@rpath")
+	set(CMAKE_INSTALL_RPATH "@loader_path/../lib;${CMAKE_INSTALL_PREFIX}/lib")
 endif()
 
 include_directories(
