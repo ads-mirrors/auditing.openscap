@@ -23,6 +23,9 @@ name = "hardened_xccdf_moc.elpmaxe.www_profile_common"
 description = "Profile title on one line"
 version = "1.0"
 
+[customizations]
+partitioning_mode = "raw"
+
 [customizations.openscap]
 profile_id = "xccdf_moc.elpmaxe.www_profile_common"
 # If your hardening data stream is not part of the 'scap-security-guide' package
