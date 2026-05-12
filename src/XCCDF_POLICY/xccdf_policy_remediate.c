@@ -1405,6 +1405,8 @@ static int _write_script_header_to_fd(struct xccdf_policy *policy, struct xccdf_
 			"name = \"hardened_%s\"\n"
 			"description = \"%s\"\n"
 			"version = \"%s\"\n\n"
+			"[customizations]\n"
+			"partitioning_mode = \"raw\"\n\n"
 			"[customizations.openscap]\n"
 			"profile_id = \"%s\"\n"
 			"%s\n",
