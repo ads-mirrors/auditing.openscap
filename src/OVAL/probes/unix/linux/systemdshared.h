@@ -35,6 +35,7 @@
 #include <config.h>
 #endif
 
+#include <libgen.h>
 #include <limits.h>
 #include <stdio.h>
 #include "common/debug_priv.h"
